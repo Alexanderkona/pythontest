@@ -1,21 +1,19 @@
-   name: Python Test
+name: Python Test
 
-   on:
-     push:
-       branches: [ main ]
+on:
+  push:
+    branches: [ main ]
 
-   jobs:
-     build:
-       runs-on: ubuntu-latest
-
-       steps:
-       - uses: actions/checkout@v3
-       - name: Set up Python
-         uses: actions/setup-python@v4
-         with:
-           python-version: '3.9'
-       - name: Install dependencies
-         run: pip install -r requirements.txt  # Устанавливает зависимости
-       - name: Run tests
-         run: python -m unittest test_quadratic_roots.py
-   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Run tests
+      run: python -m unittest test_quadratic_roots.py
