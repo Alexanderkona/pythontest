@@ -30,3 +30,14 @@ jobs:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}  # Используйте ваш токен из Secrets
       run: |
         coveralls
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Используйте ваш токен из Secrets
+      with:
+        args: >
+          -Dsonar.projectKey=your_project_key
+          -Dsonar.organization=your_organization
+          -Dsonar.sources=.
+          -Dsonar.python.coverage.reportPaths=coverage.xml  # Укажите путь к отчету покрытия
