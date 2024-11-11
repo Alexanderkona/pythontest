@@ -14,13 +14,34 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'  # Укажи версию Python, которую ты используешь
+        python-version: '3.8'  # Укажите версию Python, которую вы используете
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest  # Если ты используешь pytest, или другие зависимости
+        pip install pytest coverage coveralls  # Установите зависимости для тестирования и покрытия
 
-    - name: Run tests
+    - name: Run tests with coverage
       run: |
-        pytest test_quadratic_roots.py  # Запуск тестов
+        coverage run -m pytest test_quadratic_roots.py  # Запуск тестов с покрытием
+
+    - name: Generate coverage report
+      run: |
+        coverage xml  # Генерация отчета покрытия в формате XML
+
+    - name: Submit coverage to Coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}  # Используйте ваш токен из Secrets
+      run: |
+        coveralls
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+      with:
+        args: >
+          -Dsonar.projectKey=alexanderkona
+          -Dsonar.organization=Alexanderkona
+          -Dsonar.sources=.
+          -Dsonar.python.coverage.reportPaths=coverage.xml  
