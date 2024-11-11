@@ -38,10 +38,10 @@ jobs:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Используйте ваш токен из Secrets
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
       with:
         args: >
           -Dsonar.projectKey=your_project_key
           -Dsonar.organization=your_organization
           -Dsonar.sources=.
-          -Dsonar.python.coverage.reportPaths=coverage.xml  # Укажите путь к отчету покрытия
+          -Dsonar.python.coverage.reportPaths=coverage.xml  
