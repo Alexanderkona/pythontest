@@ -19,8 +19,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest  # Если ты используешь pytest, или другие зависимости
+        pip install pytest coveralls  # Установка pytest и coveralls
 
     - name: Run tests
       run: |
-        pytest test_quadratic_roots.py  # Запуск тестов
+        pytest --cov=your_package_name test_quadratic_roots.py  # Запуск тестов с покрытием
+
+    - name: Upload coverage to Coveralls
+      run: |
+        coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}  # Убедитесь, что вы добавили токен в Secrets вашего репозитория
