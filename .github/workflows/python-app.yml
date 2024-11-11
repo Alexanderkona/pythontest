@@ -48,4 +48,5 @@ jobs:
           args: >
             -Dsonar.projectKey=alexanderkona
             -Dsonar.organization=Alexanderkona
+            -Dsonar.sources=.
             -Dsonar.python.coverage.reportPaths=coverage.xml
