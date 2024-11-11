@@ -14,7 +14,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'  # Укажи версию Python, которую ты используешь
+        python-version: '3.8'  # Укажите версию Python, которую вы используете
 
     - name: Install dependencies
       run: |
@@ -24,6 +24,10 @@ jobs:
     - name: Run tests with coverage
       run: |
         coverage run -m pytest test_quadratic_roots.py  # Запуск тестов с покрытием
+
+    - name: Generate coverage report
+      run: |
+        coverage xml  # Генерация отчета покрытия в формате XML
 
     - name: Submit coverage to Coveralls
       env:
