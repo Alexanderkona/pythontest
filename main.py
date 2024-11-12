@@ -1,10 +1,16 @@
 import cmath
 
+
 def quadratic_roots(a, b, c):
     # Проверка, что a не равно 0
     if a == 0:
         raise ValueError("Коэффициент 'a' не должен быть равен 0 для квадратного уравнения.")
-
+    if not all(isinstance(i, (int, float)) for i in (a, b, c)):
+        raise ValueError("Coefficients must be numbers")
+    # Здесь должна быть логика для вычисления корней квадратного уравнения.
+    # Например, для простоты:
+    if a == 0:
+        raise ValueError("Coefficient 'a' cannot be zero")
     # Вычисление дискриминанта
     D = b ** 2 - 4 * a * c
 
@@ -23,7 +29,7 @@ def quadratic_roots(a, b, c):
 
 # Пример использования
 a = 1
-b = 4
+b = 2
 c = 3
 
 roots = quadratic_roots(a, b, c)

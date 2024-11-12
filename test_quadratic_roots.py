@@ -28,5 +28,9 @@ class TestQuadraticRoots(unittest.TestCase):
         result = quadratic_roots(1, 0, 0)
         self.assertEqual(result, (0.0,))
 
+    def test_invalid_string_coefficients (self):
+        with self.assertRaises(ValueError):
+            quadratic_roots("a", "b", "c")
+
 if __name__ == '__main__':
     unittest.main()
