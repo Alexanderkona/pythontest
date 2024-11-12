@@ -1,4 +1,5 @@
 [![Python CI](https://github.com/Alexanderkona/pythontest/actions/workflows/python-app.yml/badge.svg)](https://github.com/Alexanderkona/pythontest/actions/workflows/python-app.yml)
+[![Coverage Status](https://coveralls.io/repos/github/Alexanderkona/pythontest/badge.svg?branch=main)](https://coveralls.io/github/Alexanderkona/pythontest?branch=main)
 # pythontest
 
 Метод quadratic_roots(a, b, c);
