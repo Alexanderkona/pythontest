@@ -1,5 +1,7 @@
 [![Python CI](https://github.com/Alexanderkona/pythontest/actions/workflows/python-app.yml/badge.svg)](https://github.com/Alexanderkona/pythontest/actions/workflows/python-app.yml)
 [![Coverage Status](https://coveralls.io/repos/github/Alexanderkona/pythontest/badge.svg?branch=main)](https://coveralls.io/github/Alexanderkona/pythontest?branch=main)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Alexanderkona_pythontest&metric=alert_status)](https://sonarcloud.io/dashboard?id=Alexanderkona_pythontest)
+
 # pythontest
 
 Метод quadratic_roots(a, b, c);
