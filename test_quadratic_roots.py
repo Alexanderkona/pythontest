@@ -39,6 +39,11 @@ class TestLibrary(unittest.TestCase):
     def test_levenshtein_distance_negative (self):
         self.assertGreaterEqual(self.library.levenshtein_distance("cat", "dog"), 3)
 
+    def test_levenshtein_distance_empty_string (self):
+        self.assertEqual(self.library.levenshtein_distance("", "dog"), 3)
+        self.assertEqual(self.library.levenshtein_distance("cat", ""), 3)
+        self.assertEqual(self.library.levenshtein_distance("", ""), 0)
+
 
 class TestLibraryApp(unittest.TestCase):
     def setUp (self):
